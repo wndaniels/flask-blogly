@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block time %}
+Create a User
+{% endblock %}
+
+{% block content %}
+<h1>Edit User Info</h1>
+<form action="/edit-user-info" method="POST">
+    {% for user_info in user_info %}
+    <input type="text" name="first_name" placeholder="{{user_info.first_name}}">
+    <input type="text" name="last_name" placeholder="{{user_info.last_name}}">
+    <input type="text" name="image_url" placeholder="{{user_info.image_url}}">
+    <button>Add User</button>
+    {% endfor %}
+</form>
+{% endblock %}
