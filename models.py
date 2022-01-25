@@ -11,7 +11,8 @@ def connect_db(app):
     db.init_app(app)
 
 
-# MODELS GO BELOW!
+DEFAULT_USER_IMAGE = "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+
 
 class Users(db.Model):
     __tablename__ = 'users'
@@ -32,21 +33,8 @@ class Users(db.Model):
 
     image_url = db.Column(db.Text,
                           nullable=True,
-                          default="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png")
+                          default=DEFAULT_USER_IMAGE)
 
-    # @classmethod
-    # def get_by_species(cls, species):
-    #     return cls.query.filter_by(species=species).all()
-
-    # @classmethod
-    # def get_hunger(cls):
-    #     return cls.query.filter(Pet.hunger >= 20).all()
-
-    # def greet(self):
-    #     """ Greet with pets name and their species """
-    #     return f"Hi, I am {self.name} the {self.species}"
-
-    # def feed(self, amt=20):
-    #     """ Update hunger level based off of amt """
-    #     self.hunger -= amt
-    #     self.hunger = max(self.hunger, 0)
+    @classmethod
+    def get_curr_id(cls, id):
+        return cls.query.filter_by(id=id).all()

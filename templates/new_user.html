@@ -6,10 +6,27 @@ Create a User
 
 {% block content %}
 <h1>Create a User</h1>
-<form action="" method="POST">
-    <input type="text" name="first_name" placeholder="First Name">
-    <input type="text" name="last_name" placeholder="Last Name">
-    <input type="text" name="image_url" placeholder="Provide an Image URL for User">
-    <button>Add User</button>
+<form method="POST">
+    <div>
+        <div>
+            <label for="first_name">First Name: </label>
+            <input type="text" name="first_name" placeholder="First Name" required>
+        </div>
+
+        <div>
+            <label for="last_name">Last Name: </label>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+        </div>
+
+        <div>
+            <label for="image_url">Image URL: </label>
+            <input type="text" name="image_url" placeholder="Add URL for User Image">
+        </div>
+
+        <div>
+            <a href="/users" class="btn btn-primary">Cancel</a>
+            <button type="submit" class="btn btn-success">Add</button>
+        </div>
+    </div>
 </form>
 {% endblock %}

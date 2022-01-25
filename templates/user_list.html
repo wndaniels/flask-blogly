@@ -7,11 +7,11 @@ Users
 {% block content %}
 <h1>Users</h1>
 <ul>
-    {% for user_info in user_info%}
+    {% for info in user%}
     <li>
-        <a href="/{{user_info.id}}">{{user_info.first_name}} {{user_info.last_name}}</a>
+        <a href="/users/{{info.id}}">{{info.first_name}} {{info.last_name}}</a>
     </li>
     {% endfor %}
 </ul>
-<button onclick="location.href = '/new-user-form';">Add User</button>
+<a class="btn btn-secondary" href="/users/new">Add user</a>
 {% endblock %}
