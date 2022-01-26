@@ -28,4 +28,4 @@ class BloglyModelsTest(TestCase):
         db.session.commit()
 
         user_id = Users.get_curr_id(new_user.id)
-        self.assertEqual(user_id, 1)
+        self.assertEqual(user_id, [new_user])
