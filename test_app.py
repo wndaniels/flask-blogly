@@ -18,10 +18,10 @@ db.create_all()
 
 
 class UsersTestCase(TestCase):
-    """Tests for views for Pets."""
+    """Tests for views for Users."""
 
     def setUp(self):
-        """Add sample pet."""
+        """Add sample User."""
 
         Users.query.delete()
 
