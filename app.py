@@ -60,7 +60,7 @@ def show_user(users_id):
 @app.route('/users/<int:users_id>/edit')
 def edit_user(users_id):
     """ Show form allowing User to edit their info """
-    user_info = Users.get_curr_id(users_id)
+    user_info = Users.get_curr_by_id(users_id)
     return render_template('edit_user.html', user_info=user_info)
 
 

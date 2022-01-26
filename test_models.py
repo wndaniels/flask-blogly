@@ -20,12 +20,25 @@ class BloglyModelsTest(TestCase):
 
         db.session.rollback()
 
-    def test_get_curr_id(self):
+    def test_get_curr_by_id(self):
         new_user = Users(first_name='TestFirstName',
                          last_name='TestLastName')
 
         db.session.add(new_user)
         db.session.commit()
 
-        user_id = Users.get_curr_id(new_user.id)
+        user_id = Users.get_curr_by_id(new_user.id)
         self.assertEqual(user_id, [new_user])
+
+    def test_get_curr_by_id_2(self):
+        new_user = Users(first_name='TestFirstName',
+                         last_name='TestLastName')
+
+        other_new_user = Users(first_name='TestFirstName',
+                               last_name='TestLastName')
+
+        db.session.add(new_user)
+        db.session.commit()
+
+        user_id = Users.get_curr_by_id(new_user.id)
+        self.assertNotEqual(user_id, [other_new_user])

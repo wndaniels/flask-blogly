@@ -36,5 +36,5 @@ class Users(db.Model):
                           default=DEFAULT_USER_IMAGE)
 
     @classmethod
-    def get_curr_id(cls, id):
+    def get_curr_by_id(cls, id):
         return cls.query.filter_by(id=id).all()
