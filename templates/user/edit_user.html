@@ -5,7 +5,7 @@ Edit User
 {% endblock %}
 
 {% block content %}
-{% for user in user_info %}
+{% for user in user %}
 <h1>Edit User Info for {{user.first_name}} {{user.last_name}}</h1>
 <form method="POST">
     <div>
@@ -21,7 +21,7 @@ Edit User
 
         <div>
             <label for="image_url">Image URL: </label>
-            <input type="text" name="image_url" value="{{ user.image_url }}">
+            <input type="text" name="image_url" value="{{user.image_url}}">
         </div>
 
         <div>
