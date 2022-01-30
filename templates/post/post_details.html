@@ -8,11 +8,12 @@
 
 <div>
     <div>
-        <h1>{{post.title}}</h1>
+        <h1 class="display-2">{{post.title}}</h1>
     </div>
+    <hr>
     <div>
         <p>{{post.content}}</p>
-        <p>By {{user.first_name}} {{user.last_name}}</p>
+        <p><small class="text-muted"><em>{{user.first_name}} {{user.last_name}} on {{post.date_time}}</em></small></p>
     </div>
 
     <div>

@@ -42,6 +42,12 @@ class Post(db.Model):
         default=datetime.datetime.now)
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+    @property
+    def date_time(self):
+        """Return nicely-formatted date."""
+
+        return self.created_at.strftime("%b %-d  %Y, %-I:%M %p")
+
     @classmethod
     def get_curr_post_by_id(cls, id):
         return cls.query.filter_by(id=id).all()
