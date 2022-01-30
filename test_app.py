@@ -1,7 +1,9 @@
 from unittest import TestCase
 
+from flask import redirect
+
 from app import app
-from models import db, Users
+from models import db, Users, Post
 
 # Use test database and don't clutter tests with SQL
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///blogly_test'
@@ -51,7 +53,7 @@ class UsersTestCase(TestCase):
             html = res.get_data(as_text=True)
 
             self.assertEqual(res.status_code, 200)
-            self.assertIn('<h1>TestFirstName TestLastName</h1>', html)
+            self.assertIn('TestFirstName TestLastName', html)
 
     def test_add_user(self):
         with app.test_client() as client:
