@@ -5,6 +5,7 @@ Edit User
 {% endblock %}
 
 {% block content %}
+
 {% for user in user %}
 <h1>Edit User Info for {{user.first_name}} {{user.last_name}}</h1>
 <form method="POST">
@@ -31,4 +32,5 @@ Edit User
     </div>
 </form>
 {% endfor %}
+
 {% endblock %}

@@ -17,6 +17,10 @@ connect_db(app)
 db.create_all()
 
 
+#################################################################
+# User Form and User Details
+#################################################################
+
 @app.route('/')
 def home_page():
     """ Redirects to list of users """
@@ -95,6 +99,10 @@ def delete_user(users_id):
     db.session.commit()
 
     return redirect('/users')
+
+#################################################################
+# Post Form and Post Details
+#################################################################
 
 
 @ app.route('/users/<int:users_id>/post-form')
