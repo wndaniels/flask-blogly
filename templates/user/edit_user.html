@@ -7,7 +7,7 @@ Edit User
 {% block content %}
 
 {% for user in user %}
-<h1>Edit User Info for {{user.first_name}} {{user.last_name}}</h1>
+<h1 class="display-5">Edit User Info for {{user.first_name}} {{user.last_name}}</h1>
 <form method="POST">
     <div>
         <div class="mt-3 mb-3">
@@ -26,8 +26,8 @@ Edit User
         </div>
 
         <div class="mt-3 mb-3">
-            <a href="/users/{{user.id}}" class="btn btn-primary">Cancel</a>
-            <button type="submit" class="btn btn-success">Update</button>
+            <a href="/users/{{user.id}}" class="btn btn-sm btn-outline-dark">Cancel</a>
+            <button type="submit" class="btn btn-sm btn-success">Update</button>
         </div>
     </div>
 </form>

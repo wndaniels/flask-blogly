@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{tag.name}}
+{% endblock %}
+
+{% block content %}
+
+<div>
+    <div>
+        <h1 class="display-5">{{tag.name}}</h1>
+    </div>
+
+    <div>
+        <ul>
+            {% for post in tag.posts %}
+            <li>
+                <a href="/users/{{post.users_id}}/post/{{post.id}}">{{post.title}}</a>
+                <small class="text-muted"><em> {{post.users.first_name}} {{post.users.last_name}} on
+                        {{post.date_time}}</em></small>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div>
+        <form>
+            <button class="btn btn-sm btn-primary" formaction="/tags/{{tag.id}}/edit" formmethod="GET">Edit</button>
+            <button class="btn btn-sm btn-danger" formaction="/tags/{{tag.id}}/delete" formmethod="POST"
+                onclick="return confirm('Are you sure you want to delete the tag {{tag.name}}?')">Delete</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}

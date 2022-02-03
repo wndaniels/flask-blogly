@@ -42,6 +42,9 @@ class Post(db.Model):
         default=datetime.datetime.now)
     users_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+    tags = db.relationship(
+        'Tag', secondary="posts_tags", backref="posts")
+
     @property
     def date_time(self):
         """Return nicely-formatted date."""
@@ -51,3 +54,18 @@ class Post(db.Model):
     @classmethod
     def get_curr_post_by_id(cls, id):
         return cls.query.filter_by(id=id).all()
+
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.Text, unique=True)
+
+
+class PostTag(db.Model):
+    __tablename__ = 'posts_tags'
+
+    post_id = db.Column(db.Integer, db.ForeignKey(
+        'posts.id'), primary_key=True)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True)
